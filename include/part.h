@@ -38,6 +38,11 @@
 #include "at91sam9260ek.h"
 #endif
 
+#ifdef MMNET1000
+#include "AT91SAM9260_inc.h"
+#include "mmnet1000.h"
+#endif
+
 #ifdef AT91SAM9XE
 /* For all SAM9XE chips 128/256/512/.. we use the XE128 file */
 #include "AT91SAM9XE128_inc.h"
