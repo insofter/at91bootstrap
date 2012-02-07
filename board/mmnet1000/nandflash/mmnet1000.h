@@ -96,7 +96,7 @@
 #define	IMG_SIZE		0x40000		/* Image Size in NandFlash    */
 
 #define MACH_TYPE       	0x44B		/* AT91SAM9260-EK */
-#define JUMP_ADDR		0x23F00000	/* Final Jump Address 	      */
+#define JUMP_ADDR		0x21F00000	/* Final Jump Address 	      */
 
 /* ******************************************************************* */
 /* Application Settings                                                */
