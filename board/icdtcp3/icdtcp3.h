@@ -34,8 +34,8 @@
  * Creation            : NLe Sep 28th 2006
  *-----------------------------------------------------------------------------
  */
-#ifndef _MMnet1000_H
-#define _MMnet1000_H
+#ifndef __ICDTCP3_H__
+#define __ICDTCP3_H__
 
 /* ******************************************************************* */
 /* PMC Settings                                                        */
@@ -111,4 +111,5 @@
 #define CFG_HW_INIT
 #define CFG_SDRAM
 
-#endif	/* _MMnet1000_H */
+#endif /* __ICDTCP3_H__ */
+

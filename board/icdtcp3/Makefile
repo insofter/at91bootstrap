@@ -1,32 +1,29 @@
-# TODO: set this appropriately for your local toolchain
 ifndef ERASE_FCT
 ERASE_FCT=rm -f
 endif
 ifndef CROSS_COMPILE
-CROSS_COMPILE=arm-elf-
+CROSS_COMPILE=arm-linux-
 endif
 
 TOOLCHAIN=gcc
 
-BOOTSTRAP_PATH=../../..
+BOOTSTRAP_PATH=../..
 
-# NandFlashBoot Configuration for AT91SAM9260EK
+# NandFlashBoot Configuration for icdtcp3
 
 # Target name (case sensitive!!!)
-TARGET=MMNET1000
+TARGET=ICDTCP3
 # Board name (case sensitive!!!)
-BOARD=mmnet1000
+BOARD=icdtcp3
 # Link Address and Top_of_Memory
 LINK_ADDR=0x200000
 TOP_OF_MEMORY=0x301000
-# Name of current directory
-PROJECT=nandflash
 
 ifndef BOOT_NAME
-BOOT_NAME=$(PROJECT)_$(BOARD)
+BOOT_NAME=at91bootstrap-icdtcp3
 endif
 
-INCL=./$(BOOTSTRAP_PATH)/board/$(BOARD)/$(PROJECT)
+INCL=./$(BOOTSTRAP_PATH)/board/$(BOARD)
 
 ifeq ($(TOOLCHAIN), gcc)
 

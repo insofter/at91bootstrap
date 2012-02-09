@@ -38,9 +38,9 @@
 #include "at91sam9260ek.h"
 #endif
 
-#ifdef MMNET1000
+#ifdef ICDTCP3
 #include "AT91SAM9260_inc.h"
-#include "mmnet1000.h"
+#include "icdtcp3.h"
 #endif
 
 #ifdef AT91SAM9XE
