@@ -92,8 +92,8 @@
 /* BootStrap Settings                                                  */
 /*                                                                     */
 /* ******************************************************************* */
-#define IMG_ADDRESS 		0x40000		/* Image Address in NandFlash */
-#define	IMG_SIZE		0x40000		/* Image Size in NandFlash    */
+#define IMG_ADDRESS 		0x80000		/* Image Address in NandFlash */
+#define	IMG_SIZE		0x80000		/* Image Size in NandFlash    */
 
 #define MACH_TYPE       	0x44B		/* AT91SAM9260-EK */
 #define JUMP_ADDR		0x21F00000	/* Final Jump Address 	      */

@@ -110,7 +110,7 @@ void hw_init(void)
 	/* Enable Debug messages on the DBGU */
 	dbg_init(BAUDRATE(MASTER_CLOCK, 115200));
 
-	dbg_print("AT91Boot-20081201\n\r");
+	dbg_print("at91bootstrap-icdtcp3 v1.16.1 2012/02/09\n");
 #endif /* CFG_DEBUG */
 
 #ifdef CFG_SDRAM
