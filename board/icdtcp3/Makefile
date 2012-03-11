@@ -20,8 +20,11 @@ LINK_ADDR=0x200000
 TOP_OF_MEMORY=0x301000
 
 ifndef BOOT_NAME
-BOOT_NAME=at91bootstrap-icdtcp3
+BOOT_NAME=at91bootstrap
 endif
+
+VERSION:=$(shell git describe --dirty | sed -e 's/+/-/g')
+BUILD_DATE:=$(shell date +'%Y/%m/%d %H:%M %Z')
 
 INCL=./$(BOOTSTRAP_PATH)/board/$(BOARD)
 
@@ -34,7 +37,8 @@ NM= $(CROSS_COMPILE)nm
 SIZE=$(CROSS_COMPILE)size
 OBJCOPY=$(CROSS_COMPILE)objcopy
 OBJDUMP=$(CROSS_COMPILE)objdump
-CCFLAGS=-g -mcpu=arm926ej-s -Os -Wall -D$(TARGET) -I$(INCL)
+CCFLAGS=-g -mcpu=arm926ej-s -Os -Wall -D$(TARGET) -I$(INCL) \
+  -DVERSION="\"$(VERSION)\"" -DBUILD_DATE="\"$(BUILD_DATE)\""
 ASFLAGS=-g -mcpu=arm926ej-s -c -Os -Wall -D$(TARGET) -I$(INCL) -DTOP_OF_MEM=$(TOP_OF_MEMORY)
 
 # Linker flags.
@@ -70,6 +74,8 @@ ifeq ($(TOOLCHAIN), gcc)
 $(BOOT_NAME): $(OBJS)
 	$(LD) $(LDFLAGS) -n -o $(BOOT_NAME).elf $(OBJS)
 	$(OBJCOPY) --strip-debug --strip-unneeded $(BOOT_NAME).elf -O binary $(BOOT_NAME).bin
+	@echo "version=$(VERSION)" > $(BOOT_NAME).release
+	@echo "build_date=$(BUILD_DATE)" >> $(BOOT_NAME).release
 endif
 
 
@@ -116,4 +122,4 @@ _umodsi3.o:  $(BOOTSTRAP_PATH)/lib/_umodsi3.S
 	$(AS) $(ASFLAGS) $(BOOTSTRAP_PATH)/lib/_umodsi3.S -o _umodsi3.o
 
 clean:
-	$(ERASE_FCT) *.o *.bin *.elf *.map
+	$(ERASE_FCT) *.o *.bin *.elf *.map *.release
