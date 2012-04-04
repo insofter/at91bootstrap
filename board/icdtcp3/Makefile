@@ -23,7 +23,7 @@ ifndef BOOT_NAME
 BOOT_NAME=at91bootstrap
 endif
 
-VERSION:=$(shell git describe --dirty | sed -e 's/+/-/g')
+VERSION:=$(shell git describe --dirty | sed -e 's/^v//' -e 's/+/-/g')
 BUILD_DATE:=$(shell date +'%Y/%m/%d %H:%M %Z')
 
 INCL=./$(BOOTSTRAP_PATH)/board/$(BOARD)
